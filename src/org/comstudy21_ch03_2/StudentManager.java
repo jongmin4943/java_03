@@ -1,5 +1,6 @@
 package org.comstudy21_ch03_2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentManager {
@@ -8,6 +9,7 @@ public class StudentManager {
 
 	static final int MAX = 2;
 	static Student[] stArr = new Student[MAX];
+	static ArrayList<Student> stArr2 = new ArrayList<>();
 	static int top = 0;
 
 	static Student makeStudent() {
@@ -45,14 +47,14 @@ public class StudentManager {
 			System.out.println("더 이상 입력할 수 없습니다");
 			return;
 		}
-		stArr[top++] = makeStudent();
+		stArr[top++] = makeStudent();							//ArrayList
 		System.out.println("입력 성공");
 	}
 
-	static void output() {
+	static void output() {										//ArrayList
 		System.out.println("::: OUTPUT :::");
 		for(int i = 0; i< top; i++) {
-			System.out.println(stArr[i]);
+			System.out.println("["+(i+1)+"]"+stArr[i]);
 		}
 	}
 
@@ -60,7 +62,7 @@ public class StudentManager {
 		scan.nextLine();
 		System.out.println("::: SEARCH :::");
 		System.out.print("학생의 이름을 입력해주세요 : ");
-		String searching = null;
+		String searching = null;								//ArrayList
 		try {
 			searching = scan.next();
 		} catch (Exception e) {
@@ -81,6 +83,8 @@ public class StudentManager {
 
 	static void modify() {
 		System.out.println("::: MODIFY :::");
+		System.out.println("수정할 번호를 선택해 주세요");
+		output();
 	}
 
 	static void delete() {
